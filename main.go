@@ -55,6 +55,7 @@ func realMain() error {
 
 	// TODO: ここから実装を行う
 	fmt.Print("connect")
+	//別のURLは↓のように定義をすれば良さそう
 	mux.Handle("/healthz", &handler.HealthzHandler{})
 	http.ListenAndServe(port, mux)
 	return nil
