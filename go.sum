@@ -1,3 +1,5 @@
+github.com/TechBowl-japan/go-stations v0.0.0-20210719065631-25f183aae03c h1:PhCEQtlKgPqIaiMwzM9DAO4OSwzF9MzcA2XSxQGM8PI=
+github.com/TechBowl-japan/go-stations v0.0.0-20210719065631-25f183aae03c/go.mod h1:9RAwTOzfuETHsxY14xMgj249QADgOhSf6ulWZYKqlJU=
 github.com/google/go-cmp v0.5.6 h1:BKbKCqvP6I+rmFHt06ZmyQtvB8xAkWdhFyr0ZUNZcxQ=
 github.com/google/go-cmp v0.5.6/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/jstemmer/go-junit-report v0.9.1 h1:6QPYqodiu3GuPL+7mfx+NwDdp2eTkp9IfEUpgAwUN0o=
