@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/TechBowl-japan/go-stations/model"
+	"github.com/toshi-bp/go-stations/model"
 )
 
 // A TODOService implements CRUD of TODO entities.
@@ -25,8 +25,21 @@ func (s *TODOService) CreateTODO(ctx context.Context, subject, description strin
 		insert  = `INSERT INTO todos(subject, description) VALUES(?, ?)`
 		confirm = `SELECT subject, description, created_at, updated_at FROM todos WHERE id = ?`
 	)
-
-	return nil, nil
+	res, err := s.db.ExecContext(ctx, insert, subject, description)
+	if err != nil {
+		return nil, err
+	}
+	lastID, err := res.LastInsertId()
+	if err != nil {
+		return nil, err
+	}
+	rows, err := s.db.QueryContext(ctx, confirm, lastID)
+	defer rows.Close()
+	var todo model.TODO
+	for rows.Next() {
+		err = rows.Scan(&todo.Subject, &todo.Description, &todo.CreatedAt, &todo.UpdatedAt)
+	}
+	return &todo, err
 }
 
 // ReadTODO reads TODOs on DB.
